@@ -6,17 +6,19 @@
     tools:context=".Sensors">
 
     <TextView
+        android:id="@+id/sensorDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sensors"
-        android:textSize="26dp"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:text="Details of the chosen sensor will appear here"
+        android:textSize="18dp" />
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Choose the sensor you want"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
 
         <AutoCompleteTextView
