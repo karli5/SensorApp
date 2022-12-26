@@ -6,23 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".Sensors">
 
+    <TextView
+        android:id="@+id/sensorData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="200dp"
+        android:layout_weight="1"
+        android:text="Here Sensor data will appear live" />
+
     <Button
         android:id="@+id/buttonStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="200dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="-100dp"
         android:background="#FFFFFF"
         android:text="Start" />
 
-    <Button
-        android:id="@+id/buttonStop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:layout_marginLeft="200dp"
-        android:background="#FFFFFF"
-        android:text="Stop" />
 
     <TextView
         android:id="@+id/sensorDescription"
@@ -45,6 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="none"/>
+
     </com.google.android.material.textfield.TextInputLayout>
 
 </FrameLayout>
