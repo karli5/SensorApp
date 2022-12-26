@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="0sp">
+
+    <TextView
+        android:id="@+id/id_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="1"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/date_row"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/date_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:text="Date"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toStartOf="@+id/yDesc"
+        app:layout_constraintStart_toStartOf="@+id/yDesc"
+        app:layout_constraintTop_toBottomOf="@+id/name_row"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/name_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="name"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/id_row"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/x_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="xCoord"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/y_row"
+        app:layout_constraintStart_toStartOf="@+id/y_row"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/y_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="yCoord"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/z_row"
+        app:layout_constraintStart_toStartOf="@+id/z_row"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/z_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="49dp"
+        android:text="zCoord"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/z_desc"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/z_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:text="z"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/z_row"
+        app:layout_constraintStart_toStartOf="@+id/yDesc"
+        app:layout_constraintTop_toTopOf="@+id/z_row"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/yDesc"
+        android:layout_width="0dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="23dp"
+        android:text="y"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/z_desc"
+        app:layout_constraintEnd_toEndOf="@+id/xDesc"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/xDesc"
+        app:layout_constraintTop_toTopOf="@+id/xDesc"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/xDesc"
+        android:layout_width="9dp"
+        android:layout_height="14dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:text="x"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/y_row"
+        app:layout_constraintEnd_toEndOf="@+id/name_row"
+        app:layout_constraintHorizontal_bias="0.625"
+        app:layout_constraintStart_toStartOf="@+id/name_row"
+        app:layout_constraintTop_toTopOf="@+id/date_row"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

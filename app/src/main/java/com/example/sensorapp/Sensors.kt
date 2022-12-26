@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.room.Room
 import com.example.sensorapp.databinding.FragmentSensorsBinding
 import java.time.Instant
 
@@ -35,8 +36,9 @@ class Sensors : Fragment() {
     private var param2: String? = null
 
     private lateinit var viewModel: SensorsViewModel
-    private val arrayTest = listOf("Test1", "Test2", "Test3", "Test4")
     private lateinit var binding : FragmentSensorsBinding
+
+
     @RequiresApi(Build.VERSION_CODES.O)
     var timestemp : Long = Instant.now().toEpochMilli()
 
@@ -57,7 +59,10 @@ class Sensors : Fragment() {
 
         //Initializing the ViewModel for the Sensors Activity
         viewModel = ViewModelProvider(this)[SensorsViewModel::class.java]
-
+        viewModel.appDb = AppDatabase.getDatabase(requireContext())
+        //viewModel.appDb = Room.databaseBuilder(requireContext(), AppDatabase::class.java, "app_database")
+        //    .fallbackToDestructiveMigration()
+        //    .build()
         //Initializing the list of sensors for the smartphone + the sensor manager for establishing the SensorEvent Listener
         var sm : SensorManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
         var sensorsList = sm.getSensorList((Sensor.TYPE_ALL))
@@ -89,21 +94,24 @@ class Sensors : Fragment() {
                         //Differentiation if values will have dimension 1 or 3
                         if (values != null) {
                             if(values.size == 3) {
+                                //WECHSEL ZU View Model und Livedata notwendig!
                                 var x = values?.get(0)
                                 var y = values?.get(1)
                                 var z = values?.get(2)
                                 binding.sensorData.text = "Live data: \n" +  x.toString() + "\n" + y.toString() + "\n" + z.toString() + "\n" + sensorVar.name
-                                if(Instant.now().toEpochMilli() - timestemp >= 10000) {
+                                //Using timestemps for determining if t (e.g. 10) seconds already passed, if that is the case, send the current data
+                                if(Instant.now().toEpochMilli() - timestemp >= 5000) {
                                     timestemp = Instant.now().toEpochMilli()
-                                    viewModel.updateData(x, y, z)
+                                    viewModel.updateData(x, y, z, sensorVar.name)
                                 }
                             }
                             else {
                                 var x = values?.get(0)
                                 binding.sensorData.text = "Live data: \n" +  x.toString() + "\n" + sensorVar.name
+                                //Analogue above code for one datapoint
                                 if(Instant.now().toEpochMilli() - timestemp >= 10000) {
                                     timestemp = Instant.now().toEpochMilli()
-                                    viewModel.updateData(x)
+                                    viewModel.updateData(x, sensorVar.name)
                                 }
                             }
                         }

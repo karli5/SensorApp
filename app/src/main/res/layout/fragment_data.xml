@@ -3,14 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_500"
     tools:context=".Data">
 
-    <TextView
+    <Button
+        android:id="@+id/buttonDeleteAll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Data"
-        android:textSize="26dp"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center_horizontal"
+        android:text="Delete" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </FrameLayout>
